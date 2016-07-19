@@ -321,7 +321,7 @@
                 if ((type == MQTTPublish && (qos >= MQTTQosLevelAtMostOnce && qos <= MQTTQosLevelExactlyOnce)) ||
                     (type == MQTTConnect && qos == 0) ||
                     (type == MQTTConnack && qos == 0) ||
-                    (type == MQTTPuback && qos == 0) ||
+                    (type == MQTTPuback /*&& qos == 0*/) || //Temporary comment to fix Ali yun replay qos value use client sended value(临时注释，用来解决阿里云使用用发送过去的qos值回发给用户)
                     (type == MQTTPubrec && qos == 0) ||
                     (type == MQTTPubrel && qos == 1) ||
                     (type == MQTTPubcomp && qos == 0) ||
